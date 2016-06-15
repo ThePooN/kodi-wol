@@ -1,0 +1,15 @@
+[Unit]
+Description = Kodi WOL Server
+
+After = systemd-user-sessions.service network.target
+
+[Service]
+User = root
+Group = root
+Type = simple
+ExecStart = /usr/bin/nodejs /home/thepoon/git/kodi-wol/index.js
+Restart = on-abort
+RestartSec = 5
+
+[Install]
+WantedBy = multi-user.target
